@@ -33,25 +33,13 @@
         ul {
             padding-left: 20px;
         }
-        .image-placeholder, .visual-aid-placeholder, .interactive-placeholder {
-            text-align: center;
-            margin-top: 20px;
+        .image-placeholder, .interactive-placeholder, .continue-button, .vocab-section, .why-it-matters, .test-your-knowledge, .faq-section, .stop-and-think {
+            text-align: left;
         }
-        .image-placeholder img, .visual-aid-placeholder img, .interactive-placeholder img {
+        .image-placeholder img, .interactive-placeholder img {
             max-width: 100%;
             height: auto;
             border-radius: 5px;
-        }
-        .interactive-placeholder {
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            background-color: #f5f5f5;
-        }
-        .interactive-placeholder output {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
         }
         .vocab-section, .why-it-matters, .test-your-knowledge, .faq-section, .stop-and-think {
             padding: 20px;
@@ -160,188 +148,134 @@
             margin-top: 10px;
             margin-bottom: 8px;
         }
-        .visual-aid-placeholder-labels {
-            margin-top: 10px;
-        }
-        .visual-aid-placeholder-labels ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .visual-aid-placeholder-labels li {
-            margin-bottom: 5px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
     </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <section id="section1">
-        <h1>Deep Learning's Impact on Computer Vision</h1>
-        <p>Welcome back! In the previous lesson, we explored the history of neural networks and the importance of data for deep learning. Now, let's dive into a real-world example of how deep learning has revolutionized a specific field: <b>computer vision</b>.</p>
+        <h1>The Impact of Deep Learning - The ImageNet Example</h1>
+        <h2>Deep Learning's Impact on Computer Vision</h2>
         <div class="image-placeholder">
             <img src="/placeholder.svg?height=300&width=600" alt="A collage of images showcasing various computer vision applications, such as object detection, image classification, facial recognition, and medical image analysis.">
         </div>
+        <p>Welcome back! In the previous lesson, we explored the history of neural networks and the importance of data for deep learning. Now, let's dive into a real-world example of how deep learning has revolutionized a specific field: <strong>computer vision</strong>.</p>
         <div class="continue-button" onclick="showNextSection(2)">Continue</div>
     </section>
 
     <section id="section2">
         <h2>The ImageNet Challenge: A Benchmark for Computer Vision</h2>
-        <p>Imagine a massive competition where computer scientists from around the world pit their algorithms against each other to see who can build the best image recognition system. That's essentially what the <b>ImageNet Large Scale Visual Recognition Challenge (ILSVRC)</b> was all about.</p>
-        <div class="continue-button" onclick="showNextSection(3)">Continue</div>
-    </section>
-    
-    <section id="section3">
-        <p><b>ImageNet</b> itself is a huge dataset containing over 14 million images, carefully labeled with over 1,000 different categories. Think of everything from different breeds of dogs and cats to various types of vehicles and everyday objects. It's like a giant visual encyclopedia for computers!</p>
+        <p>Imagine a massive competition where computer scientists from around the world pit their algorithms against each other to see who can build the best image recognition system. That's essentially what the <strong>ImageNet Large Scale Visual Recognition Challenge (ILSVRC)</strong> was all about.</p>
         <div class="vocab-section">
             <h3>Build Your Vocab</h3>
-            <h4>ImageNet</h4>
+            <h4 class="vocab-term">ImageNet</h4>
             <p>A large-scale dataset of over 14 million labeled images, organized according to the WordNet hierarchy. It's widely used as a benchmark for training and evaluating computer vision models.</p>
         </div>
-        <div class="continue-button" onclick="showNextSection(4)">Continue</div>
+        <p><strong>ImageNet</strong> itself is a huge dataset containing over 14 million images, carefully labeled with over 1,000 different categories. Think of everything from different breeds of dogs and cats to various types of vehicles and everyday objects. It's like a giant visual encyclopedia for computers!</p>
+        <div class="continue-button" onclick="showNextSection(3)">Continue</div>
     </section>
 
-    <section id="section4">
+    <section id="section3">
         <p>Every year, from 2010 to 2017, researchers competed in the ILSVRC to achieve the lowest error rate in classifying these images. It was a fierce battleground where new ideas and techniques were constantly being উদ্ভাবিত (innovated).</p>
         <div class="image-placeholder">
             <img src="/placeholder.svg?height=300&width=600" alt="The ImageNet logo alongside a graph depicting the decreasing error rates in the ILSVRC over the years.">
         </div>
+        <p>Here's a link to the official ImageNet website if you're curious to explore it further: <a href="http://image-net.org/" target="_blank">http://image-net.org/</a></p>
+        <div class="continue-button" onclick="showNextSection(4)">Continue</div>
+    </section>
+
+    <section id="section4">
+        <p>Let's take a look at how the performance in this challenge evolved over time, especially with the introduction of neural networks:</p>
+        <div class="image-placeholder">
+            <img src="/placeholder.svg?height=400&width=600" alt="A line graph showing the 'Percentage Error Rate %' on the y-axis and the 'Large Scale Visual Recognition Challenge Year' (2010-2017) on the x-axis. The graph illustrates the decreasing error rate over the years, with a significant drop starting around 2012, attributed to 'Neural Networks.' The point where the error rate falls below 'Human Performance' around 2015 is highlighted. The ImageNet logo and a brief description of the dataset and the competition are included.">
+        </div>
+        <p>As you can see, in the early years of the competition, the error rates were relatively high. But then, something remarkable happened. In 2012, a deep learning model called <strong>AlexNet</strong> entered the scene and blew the competition away!</p>
         <div class="continue-button" onclick="showNextSection(5)">Continue</div>
     </section>
 
     <section id="section5">
-        <p>Here's a link to the official ImageNet website if you're curious to explore it further: <a href="http://image-net.org/">http://image-net.org/</a></p>
+        <p>AlexNet's victory marked a turning point. It demonstrated the sheer power of deep neural networks for image recognition. The error rate plummeted, and the field of computer vision was forever changed.</p>
+        <div class="why-it-matters">
+            <h3>Why It Matters</h3>
+            <p>The ImageNet challenge and the success of deep learning models like AlexNet have had a profound impact on the field of computer vision. They've driven innovation and led to the development of technologies that are now used in a wide range of applications.</p>
+        </div>
+        <div class="stop-and-think">
+            <h3>Stop and Think</h3>
+            <h4>Can you think of some real-world applications where accurate image recognition is crucial?</h4>
+            <button class="reveal-button" onclick="revealAnswer('stop-and-think-1')">Reveal</button>
+            <p id="stop-and-think-1" style="display: none;">Some examples include: self-driving cars (identifying pedestrians, vehicles, and traffic signals), medical diagnosis (analyzing medical images to detect diseases), security systems (facial recognition), and robotics (object recognition for navigation and manipulation).</p>
+        </div>
         <div class="continue-button" onclick="showNextSection(6)">Continue</div>
     </section>
 
     <section id="section6">
-        <p>Let's take a look at how the performance in this challenge evolved over time, especially with the introduction of neural networks:</p>
-        <div class="visual-aid-placeholder">
-            <p><b>The Rise of Neural Networks in ImageNet</b></p>
-            <img src="/placeholder.svg?height=300&width=600" alt="A line graph showing the Percentage Error Rate % on the y-axis and the Large Scale Visual Recognition Challenge Year (2010-2017) on the x-axis.">
-            <p>Neural networks have dramatically reduced the error rate in object detection, surpassing human performance on the ImageNet challenge.</p>
+        <h2>AlexNet: A Closer Look</h2>
+        <p>Let's take a closer look at <strong>AlexNet</strong>, the model that revolutionized the ImageNet competition in 2012. It was a deep convolutional neural network, much deeper and more complex than previous models.</p>
+        <p>Here are some examples of the kinds of predictions AlexNet made on the ImageNet dataset:</p>
+        <div class="image-placeholder">
+            <img src="/placeholder.svg?height=400&width=600" alt="Four images (insect, container ship, motor scooter, classic car) with AlexNet's top 5 predictions displayed below each image. The correct label is highlighted, and confidence scores are shown next to each prediction.">
         </div>
+        <p>As you can see, AlexNet was able to correctly classify a wide range of objects, from insects and animals to vehicles and everyday items. It even got some pretty tricky ones right!</p>
         <div class="continue-button" onclick="showNextSection(7)">Continue</div>
     </section>
 
     <section id="section7">
-        <p>As you can see, in the early years of the competition, the error rates were relatively high. But then, something remarkable happened. In 2012, a deep learning model called <b>AlexNet</b> entered the scene and blew the competition away!</p>
+        <p>For example, look at the container ship. AlexNet's top prediction was "container ship," which is correct. But its other predictions, like "lifeboat" and "fireboat," also make sense, as they are visually similar to a container ship. This shows that the model was learning meaningful features and relationships between different objects.</p>
+        <p>Here's a link to the original AlexNet paper if you're interested in delving into the technical details: <a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf" target="_blank">AlexNet Paper</a></p>
+        <p>AlexNet's success was a major breakthrough, but it was just the beginning. In the following years, even deeper and more sophisticated models were developed, pushing the boundaries of what's possible in computer vision.</p>
         <div class="continue-button" onclick="showNextSection(8)">Continue</div>
     </section>
 
     <section id="section8">
-        <p>AlexNet's victory marked a turning point. It demonstrated the sheer power of deep neural networks for image recognition. The error rate plummeted, and the field of computer vision was forever changed.</p>
+        <p>The graph we saw earlier clearly shows this trend. The error rate continued to drop year after year, eventually surpassing human performance on the ImageNet challenge. This is a remarkable achievement!</p>
+        <p>It's important to remember that the ImageNet dataset is just one benchmark, and human performance can vary depending on the specific task and conditions. However, the fact that deep learning models have achieved such low error rates on this challenging dataset is a testament to their power and potential.</p>
         <div class="why-it-matters">
-            <p>The ImageNet challenge and the success of deep learning models like AlexNet have had a profound impact on the field of computer vision. They've driven innovation and led to the development of technologies that are now used in a wide range of applications.</p>
+            <h3>Why It Matters</h3>
+            <p>The advancements in computer vision, driven by deep learning and competitions like ImageNet, have far-reaching implications. From self-driving cars to medical image diagnosis, these technologies are transforming industries and improving our lives.</p>
         </div>
         <div class="continue-button" onclick="showNextSection(9)">Continue</div>
     </section>
 
     <section id="section9">
-        <div class="stop-and-think">
-            <h3>Stop and Think</h3>
-            <h4>Can you think of some real-world applications where accurate image recognition is crucial?</h4>
-            <button class="reveal-button" onclick="revealAnswer('stop-and-think-9')">Reveal Answer</button>
-            <p id="stop-and-think-9" style="display: none;">Some examples include: self-driving cars (identifying pedestrians, vehicles, and traffic signals), medical diagnosis (analyzing medical images to detect diseases), security systems (facial recognition), and robotics (object recognition for navigation and manipulation).</p>
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-section">
+            <h3>Frequently Asked Questions</h3>
+            <h4>Why was AlexNet so successful compared to previous models?</h4>
+            <p>AlexNet was a much deeper network than previous models, with multiple convolutional layers. It also used techniques like ReLU activation functions and dropout regularization, which helped it learn more complex patterns and generalize better to unseen data.</p>
+            <h4>What are some other deep learning models that have performed well on ImageNet?</h4>
+            <p>After AlexNet, several other models achieved even lower error rates on ImageNet, including: ZF Net (2013), VGG Net (2014), GoogLeNet (2014), ResNet (2015), and DenseNet (2017).</p>
         </div>
         <div class="continue-button" onclick="showNextSection(10)">Continue</div>
     </section>
 
     <section id="section10">
-        <h2>AlexNet: A Closer Look</h2>
-        <p>Let's take a closer look at <b>AlexNet</b>, the model that revolutionized the ImageNet competition in 2012. It was a deep convolutional neural network, much deeper and more complex than previous models.</p>
-        <div class="continue-button" onclick="showNextSection(11)">Continue</div>
-    </section>
-    
-    <section id="section11">
-        <p>Here are some examples of the kinds of predictions AlexNet made on the ImageNet dataset:</p>
-        <div class="visual-aid-placeholder">
-            <p><b>AlexNet Predictions on ImageNet</b></p>
-            <img src="/placeholder.svg?height=300&width=600" alt="AlexNet Predictions on ImageNet">
-            <p>Examples of AlexNet's predictions on the ImageNet dataset. The model correctly identifies a variety of objects, demonstrating the power of deep learning in computer vision.</p>
-        </div>
-        <div class="continue-button" onclick="showNextSection(12)">Continue</div>
-    </section>
-
-    <section id="section12">
-        <p>As you can see, AlexNet was able to correctly classify a wide range of objects, from insects and animals to vehicles and everyday items. It even got some pretty tricky ones right!</p>
-        <div class="continue-button" onclick="showNextSection(13)">Continue</div>
-    </section>
-
-    <section id="section13">
-        <p>For example, look at the container ship. AlexNet's top prediction was "container ship," which is correct. But its other predictions, like "lifeboat" and "fireboat," also make sense, as they are visually similar to a container ship. This shows that the model was learning meaningful features and relationships between different objects.</p>
-        <div class="continue-button" onclick="showNextSection(14)">Continue</div>
-    </section>
-
-    <section id="section14">
-        <p>Here's a link to the original AlexNet paper if you're interested in delving into the technical details: <a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf">https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf</a></p>
-        <div class="continue-button" onclick="showNextSection(15)">Continue</div>
-    </section>
-
-    <section id="section15">
-        <p>AlexNet's success was a major breakthrough, but it was just the beginning. In the following years, even deeper and more sophisticated models were developed, pushing the boundaries of what's possible in computer vision.</p>
-        <div class="continue-button" onclick="showNextSection(16)">Continue</div>
-    </section>
-
-    <section id="section16">
-        <p>The graph we saw earlier clearly shows this trend. The error rate continued to drop year after year, eventually surpassing human performance on the ImageNet challenge. This is a remarkable achievement!</p>
-        <div class="continue-button" onclick="showNextSection(17)">Continue</div>
-    </section>
-
-    <section id="section17">
-        <p>It's important to remember that the ImageNet dataset is just one benchmark, and human performance can vary depending on the specific task and conditions. However, the fact that deep learning models have achieved such low error rates on this challenging dataset is a testament to their power and potential.</p>
-        <div class="why-it-matters">
-            <p>The advancements in computer vision, driven by deep learning and competitions like ImageNet, have far-reaching implications. From self-driving cars to medical image diagnosis, these technologies are transforming industries and improving our lives.</p>
-        </div>
-        <div class="continue-button" onclick="showNextSection(18)">Continue</div>
-    </section>
-
-    <section id="section18">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-section">
-            <h4>Why was AlexNet so successful compared to previous models?</h4>
-            <p>AlexNet was a much deeper network than previous models, with multiple convolutional layers. It also used techniques like ReLU activation functions and dropout regularization, which helped it learn more complex patterns and generalize better to unseen data.</p>
-        </div>
-        <div class="faq-section">
-            <h4>What are some other deep learning models that have performed well on ImageNet?</h4>
-            <p>After AlexNet, several other models achieved even lower error rates on ImageNet, including: ZF Net (2013), VGG Net (2014), GoogLeNet (2014), ResNet (2015), and DenseNet (2017).</p>
-        </div>
-        <div class="continue-button" onclick="showNextSection(19)">Continue</div>
-    </section>
-
-    <section id="section19">
         <h2>Test Your Knowledge</h2>
         <div class="test-your-knowledge">
+            <h3>Test Your Knowledge</h3>
             <h4>Which of the following statements are true?</h4>
-            <p><input type="checkbox" id="q1a" name="q1" value="a"> <label for="q1a">ImageNet is a small dataset used for training simple computer vision models.</label></p>
-            <p><input type="checkbox" id="q1b" name="q1" value="b"> <label for="q1b">AlexNet was the first deep learning model to win the ImageNet competition.</label></p>
-            <p><input type="checkbox" id="q1c" name="q1" value="c"> <label for="q1c">Deep learning models have surpassed human performance on the ImageNet challenge.</label></p>
-            <p><input type="checkbox" id="q1d" name="q1" value="d"> <label for="q1d">The ImageNet competition is no longer held.</label></p>
-            <button class="check-button" onclick="checkAnswers()">Check Answer</button>
-            <p id="feedback" style="display: none;"></p>
+            <form id="quiz-form">
+                <label><input type="checkbox" name="q1" value="1"> ImageNet is a small dataset used for training simple computer vision models.</label><br>
+                <label><input type="checkbox" name="q2" value="2"> AlexNet was the first deep learning model to win the ImageNet competition.</label><br>
+                <label><input type="checkbox" name="q3" value="3"> Deep learning models have surpassed human performance on the ImageNet challenge.</label><br>
+                <label><input type="checkbox" name="q4" value="4"> The ImageNet competition is no longer held.</label><br>
+                <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+            </form>
         </div>
-        <div class="continue-button" onclick="showNextSection(20)">Continue</div>
+        <div id="quiz-results" style="display: none;"></div>
+        <div class="continue-button" onclick="showNextSection(11)">Continue</div>
     </section>
 
-    <section id="section20">
+    <section id="section11">
         <h2>Review and Reflect</h2>
-        <p>In this lesson, we've explored the profound impact of deep learning on computer vision, using the ImageNet challenge as a prime example. We've seen how deep learning models, starting with AlexNet, have dramatically reduced error rates in image recognition, surpassing even human performance on this benchmark. The advancements driven by ImageNet have led to real-world applications that are transforming our lives. In the next lesson we will take a look at the biological neuron and see how it inspired the creation of artificial neural networks.</p>
+        <p>In this lesson, we've explored the profound impact of deep learning on computer vision, using the ImageNet challenge as a prime example. We've seen how deep learning models, starting with AlexNet, have dramatically reduced error rates in image recognition, surpassing even human performance on this benchmark. The advancements driven by ImageNet have led to real-world applications that are transforming our lives.</p>
+        <p>In the next lesson we will take a look at the biological neuron and see how it inspired the creation of artificial neural networks.</p>
         <div class="image-placeholder">
             <img src="/placeholder.svg?height=300&width=600" alt="A futuristic image depicting various applications of computer vision, such as self-driving cars navigating a city, robots performing tasks in a factory, and doctors using AI-powered tools for medical diagnosis.">
         </div>
     </section>
 
     <script>
+        // Show the first section initially
         document.getElementById("section1").style.display = "block";
         document.getElementById("section1").style.opacity = "1";
 
@@ -368,41 +302,40 @@
             revealText.style.display = "block";
             revealButton.style.display = "none";
         }
-        
+
         function checkAnswers() {
-            const feedback = document.getElementById('feedback');
-            feedback.style.display = 'block';
-            feedback.innerHTML = ''; 
+            const form = document.getElementById('quiz-form');
+            const results = document.getElementById('quiz-results');
+            const correctAnswers = [2, 3];
+            let score = 0;
+            let feedback = '';
 
-            const q1a = document.getElementById('q1a').checked;
-            const q1b = document.getElementById('q1b').checked;
-            const q1c = document.getElementById('q1c').checked;
-            const q1d = document.getElementById('q1d').checked;
+            for (let i = 1; i <= 4; i++) {
+                const isChecked = form['q' + i].checked;
+                const isCorrect = correctAnswers.includes(i);
 
-            if (q1a) {
-                feedback.innerHTML += "ImageNet is a very large dataset with over 14 million images, used for training complex computer vision models.<br>";
-                feedback.style.color = "red";
-            } else {
-                feedback.innerHTML += "You were correct to not select the first option.<br>"
+                if (isChecked === isCorrect) {
+                    score++;
+                }
+
+                feedback += `<p>Question ${i}: ${isChecked === isCorrect ? 'Correct' : 'Incorrect'}</p>`;
+                if (isChecked !== isCorrect) {
+                    feedback += `<p>Explanation: ${getExplanation(i)}</p>`;
+                }
             }
-            if (q1b) {
-                feedback.innerHTML += "Correct, AlexNet's victory in 2012 marked a turning point in the ImageNet competition and the field of computer vision.<br>";
-                feedback.style.color = "green";
-            } else {
-                feedback.innerHTML += "You were correct to not select the second option.<br>"
-            }
-            if (q1c) {
-                feedback.innerHTML += "Absolutely right, deep learning models have achieved error rates lower than estimated human performance on the ImageNet dataset.<br>";
-                feedback.style.color = "green";
-            } else {
-                feedback.innerHTML += "You were correct to not select the third option.<br>"
-            }
-            if (q1d) {
-                feedback.innerHTML += "The ImageNet Large Scale Visual Recognition Challenge (ILSVRC) ended in 2017, but the ImageNet dataset remains a valuable resource for computer vision research.<br>";
-                feedback.style.color = "red";
-            } else {
-                feedback.innerHTML += "You were correct to not select the fourth option.<br>"
-            }
+
+            results.innerHTML = `<h3>Your Score: ${score} / 4</h3>${feedback}`;
+            results.style.display = 'block';
+        }
+
+        function getExplanation(questionNumber) {
+            const explanations = {
+                1: "ImageNet is a very large dataset with over 14 million images, used for training complex computer vision models.",
+                2: "Correct, AlexNet's victory in 2012 marked a turning point in the ImageNet competition and the field of computer vision.",
+                3: "Absolutely right, deep learning models have achieved error rates lower than estimated human performance on the ImageNet dataset.",
+                4: "The ImageNet Large Scale Visual Recognition Challenge (ILSVRC) ended in 2017, but the ImageNet dataset remains a valuable resource for computer vision research."
+            };
+            return explanations[questionNumber];
         }
     </script>
 </body>
