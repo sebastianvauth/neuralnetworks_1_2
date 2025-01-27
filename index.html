@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Impact of Deep Learning - The ImageNet Example</title>
+    <link rel="stylesheet" href="css/visualizations.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -148,9 +149,82 @@
             margin-top: 10px;
             margin-bottom: 8px;
         }
+
+        /* Visualization Styles */
+        .visualaid-placeholder {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .axis-label {
+            font-size: 14px;
+            fill: #666;
+        }
+
+        .axis path,
+        .axis line {
+            stroke: #ccc;
+        }
+
+        .axis text {
+            font-size: 12px;
+            fill: #666;
+        }
+
+        .data-line {
+            fill: none;
+            stroke: #4a90e2;
+            stroke-width: 3;
+        }
+
+        .human-performance-line {
+            stroke: #ff4d4d;
+            stroke-width: 2;
+            stroke-dasharray: 5,5;
+        }
+
+        .tooltip {
+            position: absolute;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            pointer-events: none;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-point {
+            fill: #4a90e2;
+            stroke: #fff;
+            stroke-width: 2;
+            cursor: pointer;
+            transition: r 0.2s;
+        }
+
+        .data-point:hover {
+            r: 8;
+        }
+
+        .annotation {
+            font-size: 12px;
+            fill: #666;
+        }
+
+        .grid line {
+            stroke: #e0e0e0;
+            stroke-opacity: 0.7;
+            shape-rendering: crispEdges;
+        }
+
+        .grid path {
+            stroke-width: 0;
+        }
     </style>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
     <section id="section1">
@@ -185,8 +259,7 @@
 
     <section id="section4">
         <p>Let's take a look at how the performance in this challenge evolved over time, especially with the introduction of neural networks:</p>
-        <div class="image-placeholder">
-            <img src="/placeholder.svg?height=400&width=600" alt="A line graph showing the 'Percentage Error Rate %' on the y-axis and the 'Large Scale Visual Recognition Challenge Year' (2010-2017) on the x-axis. The graph illustrates the decreasing error rate over the years, with a significant drop starting around 2012, attributed to 'Neural Networks.' The point where the error rate falls below 'Human Performance' around 2015 is highlighted. The ImageNet logo and a brief description of the dataset and the competition are included.">
+        <div id="imagenet-error-rates" class="visualaid-placeholder" style="width: 600px; height: 400px; margin: 0 auto;">
         </div>
         <p>As you can see, in the early years of the competition, the error rates were relatively high. But then, something remarkable happened. In 2012, a deep learning model called <strong>AlexNet</strong> entered the scene and blew the competition away!</p>
         <div class="continue-button" onclick="showNextSection(5)">Continue</div>
@@ -255,19 +328,210 @@
     </section>
 
     <script>
+        // ImageNet Error Rate Visualization
+        class ImageNetVisualization {
+            constructor(containerId) {
+                // Set the dimensions and margins of the graph
+                const margin = {top: 40, right: 60, bottom: 60, left: 60};
+                const width = 600 - margin.left - margin.right;
+                const height = 400 - margin.top - margin.bottom;
+
+                // Embed data directly
+                const data = {
+                    "error_rates": [
+                        {"year": 2010, "error_rate": 28.2},
+                        {"year": 2011, "error_rate": 25.8},
+                        {"year": 2012, "error_rate": 16.4},
+                        {"year": 2013, "error_rate": 11.7},
+                        {"year": 2014, "error_rate": 6.7},
+                        {"year": 2015, "error_rate": 3.6},
+                        {"year": 2016, "error_rate": 3.1},
+                        {"year": 2017, "error_rate": 2.3}
+                    ],
+                    "human_error_rate": 5.1,
+                    "annotations": [
+                        {
+                            "year": 2012,
+                            "text": "AlexNet Revolution",
+                            "description": "Introduction of deep learning model AlexNet"
+                        },
+                        {
+                            "year": 2015,
+                            "text": "Surpassed Human Performance",
+                            "description": "Deep learning models achieve better accuracy than humans"
+                        }
+                    ]
+                };
+
+                // Remove any existing SVG
+                d3.select(`#${containerId}`).select("svg").remove();
+
+                // Create SVG
+                const svg = d3.select(`#${containerId}`)
+                    .append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                    .append("g")
+                    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+                // Create scales
+                const x = d3.scaleLinear()
+                    .domain([2010, 2017])
+                    .range([0, width]);
+
+                const y = d3.scaleLinear()
+                    .domain([0, 30])
+                    .range([height, 0]);
+
+                // Add X grid
+                svg.append("g")
+                    .attr("class", "grid")
+                    .attr("transform", `translate(0,${height})`)
+                    .call(d3.axisBottom(x)
+                        .ticks(8)
+                        .tickSize(-height)
+                        .tickFormat(""));
+
+                // Add Y grid
+                svg.append("g")
+                    .attr("class", "grid")
+                    .call(d3.axisLeft(y)
+                        .ticks(6)
+                        .tickSize(-width)
+                        .tickFormat(""));
+
+                // Add X axis
+                svg.append("g")
+                    .attr("class", "axis")
+                    .attr("transform", `translate(0,${height})`)
+                    .call(d3.axisBottom(x)
+                        .ticks(8)
+                        .tickFormat(d3.format("d")));
+
+                // Add Y axis
+                svg.append("g")
+                    .attr("class", "axis")
+                    .call(d3.axisLeft(y));
+
+                // Add X axis label
+                svg.append("text")
+                    .attr("class", "axis-label")
+                    .attr("x", width / 2)
+                    .attr("y", height + 40)
+                    .style("text-anchor", "middle")
+                    .text("Year");
+
+                // Add Y axis label
+                svg.append("text")
+                    .attr("class", "axis-label")
+                    .attr("transform", "rotate(-90)")
+                    .attr("x", -height / 2)
+                    .attr("y", -40)
+                    .style("text-anchor", "middle")
+                    .text("Error Rate (%)");
+
+                // Add human error line
+                svg.append("line")
+                    .attr("class", "human-performance-line")
+                    .attr("x1", 0)
+                    .attr("x2", width)
+                    .attr("y1", y(data.human_error_rate))
+                    .attr("y2", y(data.human_error_rate));
+
+                svg.append("text")
+                    .attr("class", "annotation")
+                    .attr("x", width + 5)
+                    .attr("y", y(data.human_error_rate))
+                    .attr("dy", "0.35em")
+                    .style("fill", "#ff4d4d")
+                    .text("Human error rate");
+
+                // Add the line
+                const line = d3.line()
+                    .x(d => x(d.year))
+                    .y(d => y(d.error_rate));
+
+                svg.append("path")
+                    .datum(data.error_rates)
+                    .attr("class", "data-line")
+                    .attr("d", line);
+
+                // Add the points
+                svg.selectAll(".data-point")
+                    .data(data.error_rates)
+                    .enter()
+                    .append("circle")
+                    .attr("class", "data-point")
+                    .attr("cx", d => x(d.year))
+                    .attr("cy", d => y(d.error_rate))
+                    .attr("r", 6);
+
+                // Add annotations
+                data.annotations.forEach(annotation => {
+                    const dataPoint = data.error_rates.find(d => d.year === annotation.year);
+                    const x_pos = x(annotation.year);
+                    const y_pos = y(dataPoint.error_rate);
+
+                    svg.append("line")
+                        .attr("x1", x_pos)
+                        .attr("x2", x_pos)
+                        .attr("y1", y_pos - 10)
+                        .attr("y2", y_pos - 40)
+                        .style("stroke", "#666")
+                        .style("stroke-dasharray", "3,3");
+
+                    svg.append("text")
+                        .attr("x", x_pos)
+                        .attr("y", y_pos - 45)
+                        .attr("class", "annotation")
+                        .style("text-anchor", "middle")
+                        .text(annotation.text);
+                });
+
+                // Add tooltip
+                const tooltip = d3.select("body").append("div")
+                    .attr("class", "tooltip")
+                    .style("opacity", 0);
+
+                svg.selectAll(".data-point")
+                    .on("mouseover", (event, d) => {
+                        tooltip.transition()
+                            .duration(200)
+                            .style("opacity", .9);
+                        tooltip.html(`Year: ${d.year}<br/>Error Rate: ${d.error_rate}%`)
+                            .style("left", (event.pageX + 10) + "px")
+                            .style("top", (event.pageY - 28) + "px");
+                    })
+                    .on("mouseout", () => {
+                        tooltip.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                    });
+            }
+        }
+
         // Show the first section initially
-        document.getElementById("section1").style.display = "block";
-        document.getElementById("section1").style.opacity = "1";
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("section1").style.display = "block";
+            document.getElementById("section1").style.opacity = "1";
+            
+            // Create visualization instance
+            new ImageNetVisualization('imagenet-error-rates');
+        });
 
         function showNextSection(nextSectionId) {
             const currentButton = event.target;
             const nextSection = document.getElementById("section" + nextSectionId);
             
             currentButton.style.display = "none";
-            
             nextSection.style.display = "block";
+            
             setTimeout(() => {
                 nextSection.style.opacity = "1";
+                if (nextSectionId === 4) {
+                    // Recreate visualization when section 4 is shown
+                    new ImageNetVisualization('imagenet-error-rates');
+                }
             }, 10);
 
             setTimeout(() => {
