@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Impact of Deep Learning - The ImageNet Example</title>
-    <link rel="stylesheet" href="css/visualizations.css">
+    <title>The Power of Data for Deep Learning</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -149,389 +148,181 @@
             margin-top: 10px;
             margin-bottom: 8px;
         }
-
-        /* Visualization Styles */
-        .visualaid-placeholder {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        blockquote {
+            background-color: #f9f9f9;
+            border-left: 5px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            quotes: "\201C""\201D""\2018""\2019";
         }
-
-        .axis-label {
-            font-size: 14px;
-            fill: #666;
+        blockquote:before {
+            color: #ccc;
+            content: open-quote;
+            font-size: 4em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            vertical-align: -0.4em;
         }
-
-        .axis path,
-        .axis line {
-            stroke: #ccc;
-        }
-
-        .axis text {
-            font-size: 12px;
-            fill: #666;
-        }
-
-        .data-line {
-            fill: none;
-            stroke: #4a90e2;
-            stroke-width: 3;
-        }
-
-        .human-performance-line {
-            stroke: #ff4d4d;
-            stroke-width: 2;
-            stroke-dasharray: 5,5;
-        }
-
-        .tooltip {
-            position: absolute;
-            padding: 10px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            pointer-events: none;
-            font-size: 14px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .data-point {
-            fill: #4a90e2;
-            stroke: #fff;
-            stroke-width: 2;
-            cursor: pointer;
-            transition: r 0.2s;
-        }
-
-        .data-point:hover {
-            r: 8;
-        }
-
-        .annotation {
-            font-size: 12px;
-            fill: #666;
-        }
-
-        .grid line {
-            stroke: #e0e0e0;
-            stroke-opacity: 0.7;
-            shape-rendering: crispEdges;
-        }
-
-        .grid path {
-            stroke-width: 0;
+        blockquote p {
+            display: inline;
         }
     </style>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
     <section id="section1">
-<div class="image-placeholder">
-            <img src="/placeholder.svg?height=300&width=600" alt="A collage of images showcasing various computer vision applications, such as object detection, image classification, facial recognition, and medical image analysis.">        <h2>Deep Learning's Impact on Computer Vision</h2>
-        
+         <div class="image-placeholder">
+            <img src="/placeholder.svg?height=300&width=600" alt="Image shows a stylized oil rig pumping data streams instead of oil, symbolizing data as the raw material and fuel for Deep Learning.">
         </div>
-        <p>In the previous lesson, we explored the history of neural networks and the importance of data for deep learning. Now, let's dive into a real-world example of how deep learning has revolutionized a specific field: <strong>computer vision</strong>.</p>
+        <h1>Lesson 2: The Power of Data for Deep Learning</h1>
+        <h2>Data: The Fuel of Deep Learning</h2>
+       
+        <h3>Data is King: Why Deep Learning Thrives on Big Data</h3>
+        <p>In our historical journey, we saw how neural networks evolved over decades. But what really ignited the Deep Learning revolution in the 21st century? It wasn't just better algorithms or faster computers alone. The secret ingredient, the real fuel, is <strong>data</strong>! Let's explore why Deep Learning is so incredibly data-hungry and why that's actually a <em>good</em> thing.</p>
         <div class="continue-button" onclick="showNextSection(2)">Continue</div>
     </section>
 
     <section id="section2">
-        <h2>The ImageNet Challenge: A Benchmark for Computer Vision</h2>
-        <p>Imagine a massive competition where computer scientists from around the world pit their algorithms against each other to see who can build the best image recognition system. That's essentially what the <strong>ImageNet Large Scale Visual Recognition Challenge (ILSVRC)</strong> was all about.</p>
-        <div class="vocab-section">
-            <h3>Build Your Vocab</h3>
-            <h4 class="vocab-term">ImageNet</h4>
-            <p>A large-scale dataset of over 14 million labeled images, organized according to the WordNet hierarchy. It's widely used as a benchmark for training and evaluating computer vision models.</p>
+        <h2>The Performance Gap: Classical vs. Deep Learning</h2>
+        <p>Think of machine learning algorithms as different types of engines. Some are like fuel-efficient cars, great for smaller tasks. Others, like <strong>Deep Learning</strong>, are more like powerful rocket engines...</p>
+        <p>... but rocket engines need a LOT of fuel to really take off! This 'fuel' for Deep Learning is <strong>data</strong>. To understand this better, let's visualize how different types of machine learning algorithms behave as we feed them more and more training data.</p>
+        <div class="interactive-placeholder">
+            <img src="/placeholder.svg?height=400&width=600" alt="Interactive Line Graph: Performance vs. Training Data: Classical Learning vs. Deep Learning">
         </div>
-        <p><strong>ImageNet</strong> itself is a huge dataset containing over 14 million images, carefully labeled with over 1,000 different categories. Think of everything from different breeds of dogs and cats to various types of vehicles and everyday objects. It's like a giant visual encyclopedia for computers!</p>
+        <p>See the difference? Classical Learning algorithms often hit a performance ceiling, even with more data. But Deep Learning... it just keeps getting better!</p>
         <div class="continue-button" onclick="showNextSection(3)">Continue</div>
     </section>
 
     <section id="section3">
-        <p>Every year, from 2010 to 2017, researchers competed in the ILSVRC to achieve the lowest error rate in classifying these images. It was a fierce battleground where new ideas and techniques were constantly being innovated.</p>
-        <div class="image-placeholder">
-            <img src="/placeholder.svg?height=300&width=600" alt="The ImageNet logo alongside a graph depicting the decreasing error rates in the ILSVRC over the years.">
+        <div class="vocab-section">
+            <h3>Build Your Vocab</h3>
+            <h4 class="vocab-term">Classical Learning</h4>
+            <p>Traditional machine learning algorithms like Support Vector Machines (SVMs), Decision Trees, and Logistic Regression. They are effective with smaller datasets but often plateau in performance as data size increases.</p>
         </div>
-        <p>Here's a link to the official ImageNet website if you're curious to explore it further: <a href="http://image-net.org/" target="_blank">http://image-net.org/</a></p>
+        <p>These are your 'fuel-efficient cars' in the machine learning world – reliable and good for many tasks, but not built for extreme performance scaling with data.</p>
         <div class="continue-button" onclick="showNextSection(4)">Continue</div>
     </section>
 
     <section id="section4">
-        <p>Let's take a look at how the performance in this challenge evolved over time, especially with the introduction of neural networks:</p>
-        <div id="imagenet-error-rates" class="visualaid-placeholder" style="width: 600px; height: 400px; margin: 0 auto;">
+        <div class="vocab-section">
+            <h3>Build Your Vocab</h3>
+            <h4 class="vocab-term">Deep Learning Performance Scaling</h4>
+            <p>The characteristic of Deep Learning models to exhibit continuously improving performance as the amount of training data increases. This is a key advantage for handling large, complex datasets.</p>
         </div>
-        <p>As you can see, in the early years of the competition, the error rates were relatively high. But then, something remarkable happened. In 2012, a deep learning model called <strong>AlexNet</strong> entered the scene and blew the competition away!</p>
+        <p>This is the 'rocket engine' effect – Deep Learning thrives when you give it massive amounts of data, unlocking its full potential.</p>
         <div class="continue-button" onclick="showNextSection(5)">Continue</div>
     </section>
 
     <section id="section5">
-        <p>AlexNet's victory marked a turning point. It demonstrated the sheer power of deep neural networks for image recognition. The error rate plummeted, and the field of computer vision was forever changed.</p>
-        <div class="why-it-matters">
-            <h3>Why It Matters</h3>
-            <p>The ImageNet challenge and the success of deep learning models like AlexNet have had a profound impact on the field of computer vision. They've driven innovation and led to the development of technologies that are now used in a wide range of applications.</p>
+        <div class="vocab-section">
+            <h3>Build Your Vocab</h3>
+            <h4 class="vocab-term">Training Data</h4>
+            <p>The dataset used to 'teach' a machine learning model. It consists of examples with known inputs and desired outputs, allowing the model to learn patterns and relationships.</p>
         </div>
-        <div class="stop-and-think">
-            <h3>Stop and Think</h3>
-            <h4>Can you think of some real-world applications where accurate image recognition is crucial?</h4>
-            <button class="reveal-button" onclick="revealAnswer('stop-and-think-1')">Reveal</button>
-            <p id="stop-and-think-1" style="display: none;">Some examples include: self-driving cars (identifying pedestrians, vehicles, and traffic signals), medical diagnosis (analyzing medical images to detect diseases), security systems (facial recognition), and robotics (object recognition for navigation and manipulation).</p>
-        </div>
+        <p>Think of training data as the 'textbooks' and 'practice problems' you use to learn a new subject. The more relevant and diverse the training data, the better the model learns.</p>
         <div class="continue-button" onclick="showNextSection(6)">Continue</div>
     </section>
 
     <section id="section6">
-        <h2>AlexNet: A Closer Look</h2>
-        <p>Let's take a closer look at <strong>AlexNet</strong>, the model that revolutionized the ImageNet competition in 2012. It was a deep convolutional neural network, much deeper and more complex than previous models.</p>
-        <p>Here are some examples of the kinds of predictions AlexNet made on the ImageNet dataset:</p>
-        <div class="image-placeholder">
-            <img src="/placeholder.svg?height=400&width=600" alt="Four images (insect, container ship, motor scooter, classic car) with AlexNet's top 5 predictions displayed below each image. The correct label is highlighted, and confidence scores are shown next to each prediction.">
+        <div class="stop-and-think">
+            <h3>Stop and Think</h3>
+            <h4>Why do you think Deep Learning models require so much more data than Classical Learning algorithms to reach their full potential?</h4>
+            <button class="reveal-button" onclick="revealAnswer('stop-and-think-1')">Reveal</button>
+            <p id="stop-and-think-1" style="display: none;">Consider the complexity of Deep Learning models. They have millions or even billions of parameters (weights) that need to be learned. More data provides more examples and signals to accurately tune these parameters and capture intricate patterns.</p>
         </div>
-        <p>As you can see, AlexNet was able to correctly classify a wide range of objects, from insects and animals to vehicles and everyday items. It even got some pretty tricky ones right!</p>
+        <p>To really drive this point home, let's hear from a leading figure in Deep Learning...</p>
         <div class="continue-button" onclick="showNextSection(7)">Continue</div>
     </section>
 
     <section id="section7">
-        <p>For example, look at the container ship. AlexNet's top prediction was "container ship," which is correct. But its other predictions, like "lifeboat" and "fireboat," also make sense, as they are visually similar to a container ship. This shows that the model was learning meaningful features and relationships between different objects.</p>
-        <p>Here's a link to the original AlexNet paper if you're interested in delving into the technical details: <a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf" target="_blank">AlexNet Paper</a></p>
-        <p>AlexNet's success was a major breakthrough, but it was just the beginning. In the following years, even deeper and more sophisticated models were developed, pushing the boundaries of what's possible in computer vision.</p>
+        <h2>Andrew Ng's Analogy: Rocket Engine and Fuel</h2>
+        <p>Andrew Ng, a pioneer in Deep Learning and one of the leaders of the Google Brain Project, famously said:</p>
+        <div class="image-placeholder">
+            <img src="/placeholder.svg?height=300&width=600" alt="Image shows a portrait of Andrew Ng, a prominent figure in Deep Learning, next to a stylized rocket launching, visually representing his analogy.">
+        </div>
+        <blockquote>
+            <p>"The analogy to deep learning is that the rocket engine is the deep learning models and the fuel is the huge amounts of data we can feed to these algorithms."</p>
+        </blockquote>
+        <p>This powerful analogy perfectly captures the data-driven nature of Deep Learning. Deep Learning models are like incredibly powerful rocket engines, capable of achieving amazing feats (like superhuman image recognition or natural language understanding).</p>
+        <p>But, just like a rocket engine needs massive amounts of fuel to launch into space, Deep Learning models need <strong>huge amounts of data</strong> to unleash their full potential and achieve those amazing feats. Without sufficient data, even the most sophisticated Deep Learning model will sputter and fail to reach its destination.</p>
+        <div class="why-it-matters">
+            <h3>Why It Matters</h3>
+            <p>In today's world, we are drowning in data! The digital age has created an unprecedented explosion of information. Deep Learning algorithms are uniquely positioned to harness this 'big data' to solve problems that were previously considered impossible. This data advantage is a key driver of the Deep Learning revolution and its impact across industries.</p>
+        </div>
         <div class="continue-button" onclick="showNextSection(8)">Continue</div>
     </section>
 
     <section id="section8">
-        <p>The graph we saw earlier clearly shows this trend. The error rate continued to drop year after year, eventually surpassing human performance on the ImageNet challenge. This is a remarkable achievement!</p>
-        <p>It's important to remember that the ImageNet dataset is just one benchmark, and human performance can vary depending on the specific task and conditions. However, the fact that deep learning models have achieved such low error rates on this challenging dataset is a testament to their power and potential.</p>
-        <div class="why-it-matters">
-            <h3>Why It Matters</h3>
-            <p>The advancements in computer vision, driven by deep learning and competitions like ImageNet, have far-reaching implications. From self-driving cars to medical image diagnosis, these technologies are transforming industries and improving our lives.</p>
+        <div class="faq-section">
+            <h3>Frequently Asked Questions</h3>
+            <h4>Is it <em>always</em> true that more data is better for Deep Learning? Is there a limit?</h4>
+            <p>In general, yes, more high-quality, relevant data almost always leads to better Deep Learning model performance, up to a point. There's likely a theoretical limit, and at some point, the gains from adding even more data might become diminishingly small. However, in practice, for many real-world problems, we are still far from reaching that saturation point, and obtaining more data continues to be a valuable strategy for improving Deep Learning models.</p>
         </div>
+        <p>So, data is not just <em>important</em> for Deep Learning – it's absolutely <strong>essential</strong>. It's the lifeblood, the fuel, the very foundation upon which these powerful models are built.</p>
         <div class="continue-button" onclick="showNextSection(9)">Continue</div>
     </section>
 
     <section id="section9">
-        <div class="faq-section">
-            <h3>Frequently Asked Questions</h3>
-            <h4>Why was AlexNet so successful compared to previous models?</h4>
-            <p>AlexNet was a much deeper network than previous models, with multiple convolutional layers. It also used techniques like ReLU activation functions and dropout regularization, which helped it learn more complex patterns and generalize better to unseen data.</p>
-            <h4>What are some other deep learning models that have performed well on ImageNet?</h4>
-            <p>After AlexNet, several other models achieved even lower error rates on ImageNet, including: ZF Net (2013), VGG Net (2014), GoogLeNet (2014), ResNet (2015), and DenseNet (2017).</p>
+        <h2>Real-World Impact of Data-Driven Deep Learning</h2>
+        <p>Think about the applications of Deep Learning you see around you every day...</p>
+        <div class="image-placeholder">
+            <img src="/placeholder.svg?height=300&width=600" alt="Image shows a collage of diverse Deep Learning applications: self-driving car, medical image analysis, language translation app, voice assistant, showcasing the broad impact.">
         </div>
+        <ul>
+            <li><strong>Image Recognition:</strong> From tagging friends in photos to medical image diagnosis, powered by massive image datasets like ImageNet (which we'll discuss more later!).</li>
+            <li><strong>Natural Language Processing:</strong> Enabling chatbots, language translation, and voice assistants like Siri and Alexa, trained on vast amounts of text and speech data.</li>
+            <li><strong>Self-Driving Cars:</strong> Learning to navigate complex road scenarios and recognize objects in real-time, relying on enormous datasets of driving footage and sensor data.</li>
+            <li><strong>Recommendation Systems:</strong> Personalizing your online experiences (Netflix, Amazon, YouTube), driven by data about user behavior and preferences.</li>
+        </ul>
+        <p>All these amazing applications are possible because Deep Learning algorithms can effectively learn from and leverage the massive datasets available today. Without data, these breakthroughs would simply not exist.</p>
         <div class="continue-button" onclick="showNextSection(10)">Continue</div>
     </section>
 
-    
     <section id="section10">
+        <div class="test-your-knowledge">
+            <h3>Test Your Knowledge</h3>
+            <h4>Which of the following scenarios would likely benefit MOST from using Deep Learning, given what you've learned about its data dependency?</h4>
+            <div id="quiz-options">
+                <p><input type="radio" name="quiz" id="option1"> <label for="option1">Predicting house prices in a small town with limited sales data.</label></p>
+                <p><input type="radio" name="quiz" id="option2"> <label for="option2">Classifying millions of satellite images to monitor deforestation.</label></p>
+                <p><input type="radio" name="quiz" id="option3"> <label for="option3">Developing a simple rule-based system to sort emails into 'important' and 'not important'.</label></p>
+            </div>
+            <button class="check-button" onclick="checkAnswer()">Check Answer</button>
+            <p id="quiz-feedback" style="display: none;"></p>
+        </div>
+        <p>So, as we move forward in our Deep Learning journey, always remember the crucial role of data. It's the fuel that powers these incredible engines, and understanding its importance is fundamental to mastering Deep Learning.</p>
+        <div class="continue-button" onclick="showNextSection(11)">Continue</div>
+    </section>
+
+    <section id="section11">
         <h2>Review and Reflect</h2>
-        <p>In this lesson, we've explored the profound impact of deep learning on computer vision, using the ImageNet challenge as a prime example. We've seen how deep learning models, starting with AlexNet, have dramatically reduced error rates in image recognition, surpassing even human performance on this benchmark. The advancements driven by ImageNet have led to real-world applications that are transforming our lives.</p>
-        <p>In the next lesson we will take a look at the biological neuron and see how it inspired the creation of artificial neural networks.</p>
         <div class="image-placeholder">
+            <img src="/placeholder.svg?height=300&width=600" alt="Image shows a data stream flowing into a neural network diagram, visually summarizing the lesson's main point about data powering Deep Learning.">
+        </div>
+        <p>In this lesson, we've uncovered a fundamental truth about Deep Learning: <strong>Data is Power!</strong> You've learned:</p>
+        <ul>
+            <li><strong>The Performance Gap:</strong> Deep Learning scales much better with data compared to Classical Learning.</li>
+            <li><strong>Andrew Ng's Analogy:</strong> Deep Learning models are like rocket engines, and data is their fuel.</li>
+            <li><strong>Real-World Impact:</strong> Massive datasets are the foundation for Deep Learning's success in diverse applications.</li>
+        </ul>
+        <p>Now that you understand the crucial role of data, we are ready to explore more concrete examples of Deep Learning in action, and in the next lesson, we will dive into the groundbreaking ImageNet example and see how data fueled a revolution in image recognition!</p>
     </section>
 
     <script>
-        // ImageNet Error Rate Visualization
-        class ImageNetVisualization {
-            constructor(containerId) {
-                // Set the dimensions and margins of the graph
-                const margin = {top: 40, right: 60, bottom: 60, left: 60};
-                const width = 600 - margin.left - margin.right;
-                const height = 400 - margin.top - margin.bottom;
-
-                // Embed data directly
-                const data = {
-                    "error_rates": [
-                        {"year": 2010, "error_rate": 28.2},
-                        {"year": 2011, "error_rate": 25.8},
-                        {"year": 2012, "error_rate": 16.4},
-                        {"year": 2013, "error_rate": 11.7},
-                        {"year": 2014, "error_rate": 6.7},
-                        {"year": 2015, "error_rate": 3.6},
-                        {"year": 2016, "error_rate": 3.1},
-                        {"year": 2017, "error_rate": 2.3}
-                    ],
-                    "human_error_rate": 5.1,
-                    "annotations": [
-                        {
-                            "year": 2012,
-                            "text": "AlexNet Revolution",
-                            "description": "Introduction of deep learning model AlexNet"
-                        },
-                        {
-                            "year": 2015,
-                            "text": "Surpassed Human Performance",
-                            "description": "Deep learning models achieve better accuracy than humans"
-                        }
-                    ]
-                };
-
-                // Remove any existing SVG
-                d3.select(`#${containerId}`).select("svg").remove();
-
-                // Create SVG
-                const svg = d3.select(`#${containerId}`)
-                    .append("svg")
-                    .attr("width", width + margin.left + margin.right)
-                    .attr("height", height + margin.top + margin.bottom)
-                    .append("g")
-                    .attr("transform", `translate(${margin.left},${margin.top})`);
-
-                // Create scales
-                const x = d3.scaleLinear()
-                    .domain([2010, 2017])
-                    .range([0, width]);
-
-                const y = d3.scaleLinear()
-                    .domain([0, 30])
-                    .range([height, 0]);
-
-                // Add X grid
-                svg.append("g")
-                    .attr("class", "grid")
-                    .attr("transform", `translate(0,${height})`)
-                    .call(d3.axisBottom(x)
-                        .ticks(8)
-                        .tickSize(-height)
-                        .tickFormat(""));
-
-                // Add Y grid
-                svg.append("g")
-                    .attr("class", "grid")
-                    .call(d3.axisLeft(y)
-                        .ticks(6)
-                        .tickSize(-width)
-                        .tickFormat(""));
-
-                // Add X axis
-                svg.append("g")
-                    .attr("class", "axis")
-                    .attr("transform", `translate(0,${height})`)
-                    .call(d3.axisBottom(x)
-                        .ticks(8)
-                        .tickFormat(d3.format("d")));
-
-                // Add Y axis
-                svg.append("g")
-                    .attr("class", "axis")
-                    .call(d3.axisLeft(y));
-
-                // Add X axis label
-                svg.append("text")
-                    .attr("class", "axis-label")
-                    .attr("x", width / 2)
-                    .attr("y", height + 40)
-                    .style("text-anchor", "middle")
-                    .text("Year");
-
-                // Add Y axis label
-                svg.append("text")
-                    .attr("class", "axis-label")
-                    .attr("transform", "rotate(-90)")
-                    .attr("x", -height / 2)
-                    .attr("y", -40)
-                    .style("text-anchor", "middle")
-                    .text("Error Rate (%)");
-
-                // Add human error line
-                svg.append("line")
-                    .attr("class", "human-performance-line")
-                    .attr("x1", 0)
-                    .attr("x2", width)
-                    .attr("y1", y(data.human_error_rate))
-                    .attr("y2", y(data.human_error_rate));
-
-                svg.append("text")
-                    .attr("class", "annotation")
-                    .attr("x", width + 5)
-                    .attr("y", y(data.human_error_rate))
-                    .attr("dy", "0.35em")
-                    .style("fill", "#ff4d4d")
-                    .text("Human error rate");
-
-                // Add the line
-                const line = d3.line()
-                    .x(d => x(d.year))
-                    .y(d => y(d.error_rate));
-
-                svg.append("path")
-                    .datum(data.error_rates)
-                    .attr("class", "data-line")
-                    .attr("d", line);
-
-                // Add the points
-                svg.selectAll(".data-point")
-                    .data(data.error_rates)
-                    .enter()
-                    .append("circle")
-                    .attr("class", "data-point")
-                    .attr("cx", d => x(d.year))
-                    .attr("cy", d => y(d.error_rate))
-                    .attr("r", 6);
-
-                // Add annotations
-                data.annotations.forEach(annotation => {
-                    const dataPoint = data.error_rates.find(d => d.year === annotation.year);
-                    const x_pos = x(annotation.year);
-                    const y_pos = y(dataPoint.error_rate);
-
-                    svg.append("line")
-                        .attr("x1", x_pos)
-                        .attr("x2", x_pos)
-                        .attr("y1", y_pos - 10)
-                        .attr("y2", y_pos - 40)
-                        .style("stroke", "#666")
-                        .style("stroke-dasharray", "3,3");
-
-                    svg.append("text")
-                        .attr("x", x_pos)
-                        .attr("y", y_pos - 45)
-                        .attr("class", "annotation")
-                        .style("text-anchor", "middle")
-                        .text(annotation.text);
-                });
-
-                // Add tooltip
-                const tooltip = d3.select("body").append("div")
-                    .attr("class", "tooltip")
-                    .style("opacity", 0);
-
-                svg.selectAll(".data-point")
-                    .on("mouseover", (event, d) => {
-                        tooltip.transition()
-                            .duration(200)
-                            .style("opacity", .9);
-                        tooltip.html(`Year: ${d.year}<br/>Error Rate: ${d.error_rate}%`)
-                            .style("left", (event.pageX + 10) + "px")
-                            .style("top", (event.pageY - 28) + "px");
-                    })
-                    .on("mouseout", () => {
-                        tooltip.transition()
-                            .duration(500)
-                            .style("opacity", 0);
-                    });
-            }
-        }
-
         // Show the first section initially
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById("section1").style.display = "block";
-            document.getElementById("section1").style.opacity = "1";
-            
-            // Create visualization instance
-            new ImageNetVisualization('imagenet-error-rates');
-        });
+        document.getElementById("section1").style.display = "block";
+        document.getElementById("section1").style.opacity = "1";
 
         function showNextSection(nextSectionId) {
             const currentButton = event.target;
             const nextSection = document.getElementById("section" + nextSectionId);
             
             currentButton.style.display = "none";
-            nextSection.style.display = "block";
             
+            nextSection.style.display = "block";
             setTimeout(() => {
                 nextSection.style.opacity = "1";
-                if (nextSectionId === 4) {
-                    // Recreate visualization when section 4 is shown
-                    new ImageNetVisualization('imagenet-error-rates');
-                }
             }, 10);
 
             setTimeout(() => {
@@ -547,39 +338,19 @@
             revealButton.style.display = "none";
         }
 
-        function checkAnswers() {
-            const form = document.getElementById('quiz-form');
-            const results = document.getElementById('quiz-results');
-            const correctAnswers = [2, 3];
-            let score = 0;
-            let feedback = '';
-
-            for (let i = 1; i <= 4; i++) {
-                const isChecked = form['q' + i].checked;
-                const isCorrect = correctAnswers.includes(i);
-
-                if (isChecked === isCorrect) {
-                    score++;
-                }
-
-                feedback += `<p>Question ${i}: ${isChecked === isCorrect ? 'Correct' : 'Incorrect'}</p>`;
-                if (isChecked !== isCorrect) {
-                    feedback += `<p>Explanation: ${getExplanation(i)}</p>`;
-                }
+        function checkAnswer() {
+            const option2 = document.getElementById('option2');
+            const feedback = document.getElementById('quiz-feedback');
+            
+            if (option2.checked) {
+                feedback.textContent = "Correct! Classifying millions of images is a perfect task for Deep Learning, as it can leverage the massive image dataset to achieve high accuracy.";
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent = "Not quite. Remember, Deep Learning thrives on large amounts of data. Try again!";
+                feedback.style.color = "red";
             }
-
-            results.innerHTML = `<h3>Your Score: ${score} / 4</h3>${feedback}`;
-            results.style.display = 'block';
-        }
-
-        function getExplanation(questionNumber) {
-            const explanations = {
-                1: "ImageNet is a very large dataset with over 14 million images, used for training complex computer vision models.",
-                2: "Correct, AlexNet's victory in 2012 marked a turning point in the ImageNet competition and the field of computer vision.",
-                3: "Absolutely right, deep learning models have achieved error rates lower than estimated human performance on the ImageNet dataset.",
-                4: "The ImageNet Large Scale Visual Recognition Challenge (ILSVRC) ended in 2017, but the ImageNet dataset remains a valuable resource for computer vision research."
-            };
-            return explanations[questionNumber];
+            
+            feedback.style.display = "block";
         }
     </script>
 </body>
